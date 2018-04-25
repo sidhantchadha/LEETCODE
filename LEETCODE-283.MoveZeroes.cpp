@@ -3,25 +3,26 @@
 // Author      : Sidhant Chadha
 // Version     :
 // Copyright   : 
-// Description : Hello World in C++, Ansi-style
+// Description : Move Zeroes in C++, Ansi-style
 //============================================================================
-
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-
-        int j = 0;
-        // move all the nonzero elements advance
-        for (int i = 0; i < nums.size(); i++) {
-            if (nums[i] != 0) {
-                nums[j++] = nums[i];
+        int size=nums.size();
+        int ctr=0;
+        for(int i=0;i<nums.size();){
+            if(nums[i]==0){
+                ctr++;
+                nums.erase(nums.begin()+i);
+                i=i;
+                
             }
+            else
+                i++;
         }
-        for (;j < nums.size(); j++) {
-            nums[j] = 0;
+        for(int j=size-ctr;j<size;j++)
+            nums.push_back(0);
+        
         }
-    }
-
-
-
+    
 };
