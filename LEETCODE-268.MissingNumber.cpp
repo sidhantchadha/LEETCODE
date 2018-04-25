@@ -8,24 +8,20 @@
 
 class Solution {
 public:
-    int missingNumber(vector<int>& V) {
+    int missingNumber(vector<int>& nums) {
         unordered_set<int>S;
-        if(V.size()==0)
-            return 0;
-
-        int minn=0;
-        make_heap(V.begin(),V.end());
-        int maxx=V.front();
-        for(int i=0;i<V.size();i++) {
-
-            S.insert(V[i]);
-
-        }
-
-        for(int i=minn;i<=maxx;++i) {
-            if(S.find(i)==S.end())
-                return i;
+        int missing=-1;
+        for(int i=0;i<nums.size();i++)
+            S.insert(nums[i]);
+    
+        for(int j=0;j<=nums.size();j++){
+            if(S.find(j)==S.end()){
+                missing=j;
+                break;
             }
-        return maxx+1;
+        }
+                
+        
+         return missing;       
     }
 };
