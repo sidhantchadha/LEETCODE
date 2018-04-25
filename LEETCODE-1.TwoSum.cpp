@@ -8,27 +8,28 @@
 
 class Solution {
 public:
-vector<int> twoSum(vector<int>& V, int target) {
-
-    unordered_set<int>S;
-    vector<int>Z;
-    int m=0;
-    int n=0;
-	for(int i=0;i<V.size();i++){
-    if(S.find(V[i])!=S.end()) {
-    	 m=V[i];
-    	 n=i;
-    }
-    else
-    S.insert(target-V[i]);
-}
-	for(int i=0;i<V.size();++i) {
-		if(V[i]==(target-m)) {
-			Z.push_back(i);
-            break;
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_set<int>S;
+        vector<int>V;
+        int first=0;
+        for(int i=0;i<nums.size();i++){
+            if(S.find(nums[i])!=S.end()){
+                V.push_back(i);
+                first=nums[i];
+                break;
+            }
+            else
+                S.insert(target-nums[i]);
         }
-	}
-	 Z.push_back(n);
-    return Z;
+        for(int i=0;i<nums.size();i++)
+            if(nums[i]==(target-first))
+            {
+                V.push_back(i);
+                break;
     }
+        
+        return V;
+    
+               }
+               
 };
