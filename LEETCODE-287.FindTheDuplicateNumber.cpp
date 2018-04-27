@@ -6,6 +6,24 @@
 // Description : Find The Duplicate Number in C++, Ansi-style
 //============================================================================
 
+//If constant space constraint is not there//
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        unordered_map<int,int>M;
+        for(int i=0;i<nums.size();i++){
+            M[nums[i]]++;
+            if(M[nums[i]]>1)
+                return nums[i];
+        }
+    }
+};
+
+
+
+//If constant space constraint is there//
+
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
