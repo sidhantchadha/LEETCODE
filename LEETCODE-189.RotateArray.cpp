@@ -6,6 +6,25 @@
 // Description : Rotate Array in C++, Ansi-style
 //============================================================================
 
+//Simple reverse function//
+class Solution {
+public:
+    
+
+    void rotate(vector<int>& nums, int k) {
+        int n=nums.size();
+        k=k%n;
+        reverse(nums.begin(),nums.end());
+        reverse(nums.begin(),nums.begin()+k);
+        reverse(nums.begin()+k,nums.end());
+    }
+};
+
+
+
+//Self created Reverse Function//
+
+
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {

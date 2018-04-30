@@ -6,6 +6,8 @@
 // Description : Merge Sorted Array in C++, Ansi-style
 //============================================================================
 
+
+//Return vector 1 as sorted vector//
 class Solution {
 public:
     void merge(vector<int>& A, int m, vector<int>& B, int n) {
@@ -23,4 +25,38 @@ public:
 		while(j>=0)
 			A[k--] = B[j--];
     }
+};
+
+//Return new sorted vector
+class Solution {
+public:
+    vector<int> merge(vector<int>& A, int m, vector<int>& B, int n) {
+	    int i=0;
+	    int j=0;
+	    int k=0;
+	    vector<int>V;
+	    while(i<m && j<n){
+		    if(A[i]<B[j]){
+			    V[k]=A[i];
+			    k++;
+			    i++;
+		    }
+		    else {
+			    V[k]=B[j];
+			    k++;
+			    j++;
+		    }
+	    }
+	    while(i<m){
+		    V[k]=A[i];
+		    i++;
+		    k++;
+	    }
+	    while(j<n){
+		    V[k]=B[j];
+		    k++;
+		    j++;
+	    }
+	    return V;
+	    
 };
