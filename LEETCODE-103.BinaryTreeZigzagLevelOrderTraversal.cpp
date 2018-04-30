@@ -23,7 +23,7 @@ public:
             return ans;
         queue<TreeNode*>q;
         q.push(p);
-        char level=1;
+        int level=1;
         while(!q.empty()){
             int size=q.size();
             vector<int>V;
