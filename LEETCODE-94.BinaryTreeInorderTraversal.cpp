@@ -15,6 +15,32 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+//Iterative//
+
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* p) {
+        vector<int>V;
+        if(p==NULL)
+            return V;
+        stack<TreeNode*>s;
+        while(p || !s.empty()){
+            while(p){
+                s.push(p);
+                p=p->left;
+            }
+            p=s.top();
+            s.pop();
+            V.push_back(p->val);
+            p=p->right;
+        }
+        return V;
+    }
+};
+
+
+//Recursive//
 class Solution {
 public:
    vector<int> inorderTraversal(TreeNode* root) {
